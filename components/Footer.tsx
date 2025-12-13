@@ -1,6 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import SupportModal from "./SupportModal";
 
 export default function Footer() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <footer className="py-12 px-4 md:px-12 border-t border-white/5 bg-[#050a08]">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
@@ -22,7 +28,7 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold mb-4">Product</h4>
                         <ul className="space-y-2 text-gray-500">
-                            <li><Link href="#" className="hover:text-primary transition-colors">Technology</Link></li>
+                            <li><Link href="#technology" className="hover:text-primary transition-colors">Technology</Link></li>
                             <li><Link href="#" className="hover:text-primary transition-colors">Safety</Link></li>
                             <li><Link href="#" className="hover:text-primary transition-colors">Research</Link></li>
                         </ul>
@@ -30,8 +36,15 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold mb-4">Company</h4>
                         <ul className="space-y-2 text-gray-500">
-                            <li><Link href="#" className="hover:text-primary transition-colors">About Us</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">Contact</Link></li>
+                            <li><Link href="#motivation" className="hover:text-primary transition-colors">About Us</Link></li>
+                            <li>
+                                <button
+                                    onClick={() => setIsModalOpen(true)}
+                                    className="hover:text-primary transition-colors text-left"
+                                >
+                                    Contact
+                                </button>
+                            </li>
                             <li><Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
                         </ul>
                     </div>
@@ -51,6 +64,7 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 text-center md:text-left text-xs text-gray-600">
                 © 2025 NeoBreath Guard. All rights reserved. Not a medical advice replacement for professional care.
             </div>
+            <SupportModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </footer>
     );
 }

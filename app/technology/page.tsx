@@ -18,7 +18,7 @@ export default function TechnologyPage() {
                 <section>
                     <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-primary/10 text-xs font-medium text-primary border border-primary/20">
                         TECHNICAL SPECS
-                        <span className="bg-primary/20 px-1 rounded text-white ml-2">v2.4.0</span>
+                        <span className="bg-primary/20 px-1 rounded text-white ml-2">v1.0.0</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-bold mb-4">Technical Specifications <br /> & Overview</h1>
                     <p className="text-gray-400 max-w-2xl text-lg">
@@ -83,25 +83,17 @@ export default function TechnologyPage() {
                 </section>
 
                 {/* Non-Invasive Monitoring Visual */}
-                <section className="relative h-64 md:h-80 rounded-3xl overflow-hidden bg-gradient-to-r from-black to-secondary border border-white/5 flex items-center justify-center">
-                    {/* Waveform Visualization */}
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 flex items-end justify-center px-4 md:px-12 opacity-80">
-                        <div className="w-full flex items-end justify-between h-full gap-0.5">
-                            {[...Array(60)].map((_, i) => {
-                                const height = Math.abs(Math.sin(i * 0.2) * 80) + Math.random() * 20;
-                                return (
-                                    <div
-                                        key={i}
-                                        className="bg-gradient-to-t from-transparent via-blue-500 to-green-400 w-full rounded-t-sm"
-                                        style={{ height: `${height}%`, opacity: 0.5 + Math.random() * 0.5 }}
-                                    ></div>
-                                )
-                            })}
-                        </div>
-                    </div>
-                    <div className="absolute bottom-8 left-8 z-10">
-                        <h3 className="text-xl font-bold mb-1">Non-Invasive Monitoring</h3>
-                        <p className="text-xs text-primary">Safe for infants 0-12 months</p>
+                <section className="w-full h-64 md:h-80 rounded-2xl overflow-hidden relative">
+                    <img
+                        alt="Abstract visualization of safe and calm breathing patterns in blue and green gradients"
+                        className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity duration-700"
+                        data-alt="Abstract visualization of safe and calm breathing patterns in blue and green gradients"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe6KCsHEm5nuanJ5s5G1469CywP2vBuVffQkLW7ax8UJaJbr0VZogjc-UxiMvNFM5DspvYTC3t6ay5XjNg_FVbEXZzsJSV7eUlfYNU7E-Icy0e8Sqouj63ZyB-wgoWbs66dsW8V_zo9OdEk5-wjTxVR7WibbP596-NKkKForaN-KQ0jUr-AnhGbN35Ycd9MsgfgsKRS1eT50qHxAtD_Y7GyKgmXEcqH755hzk7z4w_NvJbqji8oDQbcTHkkPBbfKZJ2ZNJEL2jzQg"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#112217] via-transparent to-transparent"></div>
+                    <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
+                        <p className="text-white font-bold text-lg">Non-Invasive Monitoring</p>
+                        <p className="text-primary text-sm">Safe for infants 0-12 months</p>
                     </div>
                 </section>
 
