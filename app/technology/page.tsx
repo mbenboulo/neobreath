@@ -3,10 +3,11 @@
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import FadeIn from "@/components/FadeIn";
+import Footer from "@/components/Footer";
 
 export default function TechnologyPage() {
     return (
-        <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary selection:text-background pb-20">
+        <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary selection:text-background pb-0">
             {/* Header */}
             <header className="sticky top-0 z-50 w-full bg-[#112217]/90 backdrop-blur-md border-b border-secondary">
                 <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,7 +20,7 @@ export default function TechnologyPage() {
                 </div>
             </header>
 
-            <main className="w-full max-w-5xl mx-auto pt-12 px-4 sm:px-6 lg:px-8">
+            <main className="w-full max-w-5xl mx-auto pt-12 px-4 sm:px-6 lg:px-8 pb-24">
                 {/* Intro Section */}
                 <div className="mb-16">
                     <FadeIn delay={0.1}>
@@ -257,6 +258,7 @@ export default function TechnologyPage() {
                     </ScrollReveal>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 }
