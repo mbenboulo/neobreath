@@ -7,20 +7,22 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-surface: var(--surface);
+  --color-text-secondary: var(--text-secondary);
   --font-sans: var(--font-manrope);
 }
 
 :root {
-  --background: #102216;
+  --background: #112217;
   /* background-dark */
   --foreground: #ffffff;
-  --card: #1a3322;
+  --card: #1c3324;
   /* surface-dark */
   --primary: #13ec5b;
   /* primary green */
   --secondary: #23482f;
-  /* dark border/secondary */
-  --surface: #1a3322;
+  /* surface-border */
+  --surface: #1c3324;
+  --text-secondary: #92c9a4;
   --font-manrope: var(--font-manrope);
 }
 
