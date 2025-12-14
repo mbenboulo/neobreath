@@ -1,46 +1,72 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SupportModal from "./SupportModal";
 
 export default function Navbar() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isSupportOpen, setIsSupportOpen] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <>
-            <nav className="w-full py-6 px-4 md:px-12 flex items-center justify-between max-w-7xl mx-auto">
-                <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-primary/10 rounded flex items-center justify-center">
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-4 h-4 text-primary"
-                        >
-                            <path d="M20 6h-4V4c0-1.1-0.9-2-2-2h-4c-1.1 0-2 0.9-2 2v2H4c-1.1 0-2 0.9-2 2v12c0 1.1 0.9 2 2 2h16c1.1 0 2-0.9 2-2V8c0-1.1-0.9-2-2-2zM10 4h4v2h-4V4zm6 11h-3v3h-2v-3H8v-2h3v-3h2v3h3v2z" />
-                        </svg>
+            <nav className={`sticky top-0 z-50 w-full border-b border-[#23482f] bg-background-dark/80 backdrop-blur-md`}>
+                <div className="layout-container flex justify-center">
+                    <div className="flex w-full max-w-[960px] items-center justify-between px-4 py-3 md:px-10">
+                        <div className="flex items-center gap-4 text-white">
+                            <Link href="/" className="flex items-center gap-4">
+                                <div className="flex items-center justify-center text-primary">
+                                    <span className="material-symbols-outlined text-3xl">medical_services</span>
+                                </div>
+                                <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">NeoBreath Guard</h2>
+                            </Link>
+                        </div>
+                        <div className="hidden md:flex flex-1 justify-end gap-8">
+                            <div className="flex items-center gap-9">
+                                <Link href="#motivation" className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Motivation</Link>
+                                <Link href="#technology" className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Technology</Link>
+                                <Link href="#impact" className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Impact</Link>
+                            </div>
+                            <button
+                                onClick={() => setIsSupportOpen(true)}
+                                className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary text-[#112217] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white transition-colors"
+                            >
+                                <span className="truncate">Support Us</span>
+                            </button>
+                        </div>
+                        <div className="md:hidden text-white cursor-pointer" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                            <span className="material-symbols-outlined">menu</span>
+                        </div>
                     </div>
-                    <span className="text-xl font-bold tracking-tight">NeoBreath Guard</span>
                 </div>
-                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-                    <Link href="#motivation" className="hover:text-white transition-colors">
-                        Motivation
-                    </Link>
-                    <Link href="#technology" className="hover:text-white transition-colors">
-                        Technology
-                    </Link>
-                    <Link href="#impact" className="hover:text-white transition-colors">
-                        Impact
-                    </Link>
-                    <button
-                        onClick={() => setIsModalOpen(true)}
-                        className="bg-primary hover:bg-green-600 text-black px-5 py-2 rounded-full font-semibold transition-colors cursor-pointer"
-                    >
-                        Support Us
-                    </button>
-                </div>
+                {/* Mobile Menu */}
+                {isMobileMenuOpen && (
+                    <div className="md:hidden absolute top-full left-0 w-full bg-[#102216] border-b border-[#23482f] py-4 px-4 flex flex-col gap-4">
+                        <Link href="#motivation" className="text-white hover:text-primary transition-colors text-sm font-medium">Motivation</Link>
+                        <Link href="#technology" className="text-white hover:text-primary transition-colors text-sm font-medium">Technology</Link>
+                        <Link href="#impact" className="text-white hover:text-primary transition-colors text-sm font-medium">Impact</Link>
+                        <button
+                            onClick={() => {
+                                setIsSupportOpen(true);
+                                setIsMobileMenuOpen(false);
+                            }}
+                            className="w-full h-10 rounded-full bg-primary text-[#112217] text-sm font-bold"
+                        >
+                            Support Us
+                        </button>
+                    </div>
+                )}
             </nav>
-            <SupportModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <SupportModal isOpen={isSupportOpen} onClose={() => setIsSupportOpen(false)} />
         </>
     );
 }

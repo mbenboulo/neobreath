@@ -1,61 +1,63 @@
+"use client";
+
 import FadeIn from "./FadeIn";
 
 export default function Motivation() {
     return (
-        <section id="motivation" className="py-24 px-4 md:px-12 max-w-7xl mx-auto">
-            <FadeIn>
-                <div className="mb-16 border-l-4 border-primary pl-6">
-                    <h2 className="text-xl font-bold text-gray-400 uppercase tracking-widest mb-2">Why We Built It</h2>
-                    <p className="text-gray-500 max-w-xl">Understanding the critical gaps in current infant care.</p>
-                </div>
-            </FadeIn>
+        <section id="motivation" className="flex justify-center w-full">
+            <div className="w-full max-w-[960px] px-4 md:px-10 py-12">
+                <div className="flex flex-col gap-10">
+                    <FadeIn>
+                        <div className="border-l-4 border-primary pl-4">
+                            <h2 className="text-white text-2xl font-bold leading-tight tracking-tight">Why We Built It</h2>
+                            <p className="text-white/60 mt-1">Understanding the critical gaps in current infant care.</p>
+                        </div>
+                    </FadeIn>
 
-            <div className="grid md:grid-cols-2 gap-12">
-                <FadeIn delay={0.2}>
-                    <div>
-                        <h3 className="text-4xl font-bold mb-6">
-                            The Silent Threat of <br />
-                            <span className="text-primary">Infant Apnea</span>
-                        </h3>
-                        <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                            Infant apnea is a condition where a baby stops breathing, often during sleep. It poses severe risks, including Sudden Infant Death Syndrome (SIDS). Unfortunately, effective monitoring solutions are often expensive and lack the accessibility required for home use.
-                        </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                        <FadeIn delay={0.2}>
+                            <div className="flex flex-col gap-6">
+                                <h3 className="text-white text-3xl md:text-4xl font-bold leading-tight max-w-[400px]">
+                                    The Silent Threat of <span className="text-primary underline decoration-primary/30 underline-offset-4">Infant Apnea</span>
+                                </h3>
+                                <p className="text-white/80 text-base leading-relaxed">
+                                    Infant apnea is a condition where a baby stops breathing, often during sleep. It poses severe risks, including Sudden Infant Death Syndrome (SIDS). Unfortunately, effective monitoring solutions are often expensive and lack the accessibility required for home use.
+                                </p>
+                            </div>
+                        </FadeIn>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <FadeIn delay={0.3}>
+                                <div className="flex flex-col p-6 rounded-2xl bg-[#1a3322] border border-[#23482f] h-full">
+                                    <div className="mb-4 size-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+                                        <span className="material-symbols-outlined">warning</span>
+                                    </div>
+                                    <h4 className="text-3xl font-bold text-white mb-1">Critical</h4>
+                                    <p className="text-sm text-white/60">Risk factor for SIDS and developmental delays</p>
+                                </div>
+                            </FadeIn>
+
+                            <FadeIn delay={0.4}>
+                                <div className="flex flex-col p-6 rounded-2xl bg-[#1a3322] border border-[#23482f] h-full">
+                                    <div className="mb-4 size-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+                                        <span className="material-symbols-outlined">notifications_off</span>
+                                    </div>
+                                    <h4 className="text-3xl font-bold text-white mb-1">Gap</h4>
+                                    <p className="text-sm text-white/60">Lack of affordable, medical-grade home monitors</p>
+                                </div>
+                            </FadeIn>
+
+                            <FadeIn delay={0.5} className="sm:col-span-2">
+                                <div className="flex flex-col p-6 rounded-2xl bg-[#1a3322] border border-[#23482f]">
+                                    <div className="mb-4 size-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+                                        <span className="material-symbols-outlined">sentiment_dissatisfied</span>
+                                    </div>
+                                    <h4 className="text-3xl font-bold text-white mb-1">Peace of Mind</h4>
+                                    <p className="text-sm text-white/60">Addressing parental anxiety with reliable technology.</p>
+                                </div>
+                            </FadeIn>
+                        </div>
                     </div>
-                </FadeIn>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {/* Card 1 */}
-                    <FadeIn delay={0.3}>
-                        <div className="bg-card p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-colors h-full">
-                            <div className="w-10 h-10 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mb-6">
-                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                            </div>
-                            <h4 className="text-xl font-bold mb-2">Critical</h4>
-                            <p className="text-sm text-gray-400">Risk factor for SIDS and developmental delays.</p>
-                        </div>
-                    </FadeIn>
-
-                    {/* Card 2 */}
-                    <FadeIn delay={0.4}>
-                        <div className="bg-card p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-colors h-full">
-                            <div className="w-10 h-10 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6">
-                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            </div>
-                            <h4 className="text-xl font-bold mb-2">Gap</h4>
-                            <p className="text-sm text-gray-400">Lack of affordable, medical-grade home monitors.</p>
-                        </div>
-                    </FadeIn>
-
-                    {/* Card 3 - Full width */}
-                    <FadeIn delay={0.5} className="sm:col-span-2">
-                        <div className="bg-card p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-colors h-full">
-                            <div className="w-10 h-10 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mb-6">
-                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            </div>
-                            <h4 className="text-xl font-bold mb-2">Peace of Mind</h4>
-                            <p className="text-sm text-gray-400">Addressing parental anxiety with reliable technology.</p>
-                        </div>
-                    </FadeIn>
                 </div>
             </div>
         </section>

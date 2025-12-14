@@ -12,16 +12,16 @@
 }
 
 :root {
-  --background: #112217;
+  --background: #102216;
   /* background-dark */
   --foreground: #ffffff;
-  --card: #1c3324;
+  --card: #1a3322;
   /* surface-dark */
   --primary: #13ec5b;
   /* primary green */
   --secondary: #23482f;
   /* surface-border */
-  --surface: #1c3324;
+  --surface: #1a3322;
   --text-secondary: #92c9a4;
   --font-manrope: var(--font-manrope);
 }

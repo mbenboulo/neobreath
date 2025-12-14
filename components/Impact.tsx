@@ -1,49 +1,49 @@
+"use client";
+
 import FadeIn from "./FadeIn";
 
 export default function Impact() {
     return (
-        <section id="impact" className="py-24 px-4 md:px-12 max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16">
-                <div>
-                    <FadeIn>
-                        <div className="mb-8 border-l-4 border-primary pl-6">
-                            <h2 className="text-xl font-bold text-gray-400 uppercase tracking-widest mb-2">Projected Impact</h2>
-                            <p className="text-3xl font-bold mb-4">A Safer Future for Infants</p>
+        <section id="impact" className="flex justify-center w-full">
+            <div className="w-full max-w-[960px] px-4 md:px-10 py-16 md:py-24">
+                <div className="flex flex-col md:flex-row gap-12 items-start">
+                    <FadeIn className="flex-1 flex flex-col gap-6">
+                        <div className="border-l-4 border-primary pl-4">
+                            <h2 className="text-white text-2xl font-bold leading-tight tracking-tight">Projected Impact</h2>
                         </div>
-                    </FadeIn>
-                    <FadeIn delay={0.2}>
-                        <p className="text-gray-400 leading-relaxed mb-6">
+                        <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+                            A Safer Future for Infants
+                        </h3>
+                        <p className="text-white/70 text-lg">
                             NeoBreath Guard aims to ensure widespread availability and accessibility to both hospitals and home caregivers, ultimately working to reduce the infant apnea mortality rate.
                         </p>
                     </FadeIn>
-                </div>
 
-                <div className="grid gap-6">
-                    <div className="flex gap-6">
-                        <FadeIn delay={0.1} className="flex-1">
-                            <div className="bg-card p-6 rounded-3xl border border-white/5 h-full">
-                                <h3 className="font-bold mb-2">Faster Response</h3>
-                                <p className="text-xs text-gray-400">Immediate alerts enable quicker parental intervention.</p>
+                    <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+                        <FadeIn delay={0.2}>
+                            <div className="p-6 rounded-2xl bg-[#1a3322] border-t-4 border-primary h-full">
+                                <h4 className="text-xl font-bold text-white mb-2">Faster Response</h4>
+                                <p className="text-sm font-medium text-white/90">Immediate alerts enable quicker parental intervention.</p>
                             </div>
                         </FadeIn>
-                        <FadeIn delay={0.2} className="flex-1">
-                            <div className="bg-card p-6 rounded-3xl border border-white/5 h-full">
-                                <h3 className="font-bold mb-2">Reduced Anxiety</h3>
-                                <p className="text-xs text-gray-400">Continuous, reliable monitoring calms parents' minds.</p>
+
+                        <FadeIn delay={0.3}>
+                            <div className="p-6 rounded-2xl bg-[#1a3322] border-t-4 border-primary h-full">
+                                <h4 className="text-xl font-bold text-white mb-2">Reduced Anxiety</h4>
+                                <p className="text-sm font-medium text-white/90">Continuous, reliable monitoring allows parents to rest.</p>
+                            </div>
+                        </FadeIn>
+
+                        <FadeIn delay={0.4} className="sm:col-span-2">
+                            <div className="p-6 rounded-2xl bg-[#1a3322] border-t-4 border-primary flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left h-full">
+                                <span className="material-symbols-outlined text-4xl text-primary">public</span>
+                                <div>
+                                    <h4 className="text-xl font-bold text-white">Increased Access</h4>
+                                    <p className="text-sm text-white/60 mt-1">Affordable technology brings medical-grade safety to more homes.</p>
+                                </div>
                             </div>
                         </FadeIn>
                     </div>
-                    <FadeIn delay={0.3}>
-                        <div className="bg-card p-6 rounded-3xl border border-white/5 flex items-center gap-6">
-                            <div className="w-12 h-12 rounded-full bg-green-900/30 text-primary flex items-center justify-center shrink-0">
-                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            </div>
-                            <div>
-                                <h3 className="font-bold mb-1">Increased Access</h3>
-                                <p className="text-xs text-gray-400">Affordable technology brings medical-grade safety to more homes.</p>
-                            </div>
-                        </div>
-                    </FadeIn>
                 </div>
             </div>
         </section>

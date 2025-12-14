@@ -1,68 +1,70 @@
+"use client";
+
 import FadeIn from "./FadeIn";
 
 export default function Technology() {
     return (
-        <section id="technology" className="py-24 px-4 md:px-12 max-w-7xl mx-auto">
-            <FadeIn>
-                <div className="text-center mb-16">
-                    <span className="inline-block px-3 py-1 rounded bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-4">Our Novelty</span>
-                    <h2 className="text-4xl font-bold mb-4">How It Works</h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
-                        NeoBreath Guard integrates cutting-edge sensors with efficient processing to ensure safety, without intrusion.
-                    </p>
+        <section id="technology" className="flex justify-center w-full bg-[#0d1a12] py-20 mt-10">
+            <div className="w-full max-w-[960px] px-4 md:px-10 flex flex-col gap-12">
+                <FadeIn>
+                    <div className="flex flex-col items-center text-center gap-4">
+                        <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
+                            <span className="text-xs font-bold text-primary uppercase tracking-wider">Our Novelty</span>
+                        </div>
+                        <h2 className="text-white text-3xl md:text-4xl font-bold leading-tight">How It Works</h2>
+                        <p className="text-white/60 max-w-[600px]">
+                            NeoBreath Guard integrates cutting-edge sensors with efficient processing to ensure safety without intrusion.
+                        </p>
+                    </div>
+                </FadeIn>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {[
+                        { title: "Capacitive Sensing", text: "Utilizes capacitive sensors.", icon: "touch_app" },
+                        { title: "Optical SpO2 Monitoring", text: "Integrates optical sensors for blood oxygen saturation tracking, providing a comprehensive view of the infant's respiratory health.", icon: "bloodtype" },
+                        { title: "Real-time Alerts", text: "Instantaneously processes sensor data to trigger alerts the moment an anomaly is detected, minimizing response time for parents.", icon: "bolt" },
+                        { title: "Low-Power Efficiency", text: "Designed for extended use with energy-efficient components, ensuring reliable operation throughout the night without frequent charging.", icon: "battery_saver" },
+                    ].map((item, i) => (
+                        <FadeIn key={i} delay={i * 0.1}>
+                            <div className="group flex flex-col p-8 rounded-[2rem] bg-[#1a3322] border border-[#23482f] hover:border-primary/50 transition-colors h-full">
+                                <div className="size-14 rounded-full bg-[#102216] flex items-center justify-center border border-[#23482f] mb-6 group-hover:bg-primary/10 group-hover:text-primary group-hover:border-primary text-white transition-all">
+                                    <span className="material-symbols-outlined text-3xl">{item.icon}</span>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                                <p className="text-white/70 leading-relaxed">{item.text}</p>
+                            </div>
+                        </FadeIn>
+                    ))}
                 </div>
-            </FadeIn>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-                {[
-                    { title: "Capacitive Sensing", text: "Utilizes capacitive sensors.", icon: "touch" },
-                    { title: "Optical SpO2 Monitoring", text: "Integrated SpO2 sensors for blood oxygen saturation tracking.", icon: "droplet" },
-                    { title: "Real-time Alerts", text: "Instantly processes sensor data to trigger alerts the moment an anomaly is detected.", icon: "lightning" },
-                    { title: "Low-Power Efficiency", text: "Designed for extended use with energy-efficient components.", icon: "battery" },
-                ].map((item, i) => (
-                    <FadeIn key={i} delay={i * 0.1}>
-                        <div className="bg-card p-8 rounded-3xl border border-white/5 flex flex-col gap-4 hover:bg-white/[0.02] transition-colors h-full">
-                            <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-white mb-2">
-                                {/* Simple icon placeholders based on name */}
-                                {item.icon === 'touch' && <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.5 10a2.5 2.5 0 014.167-1.488l3.195 2.573a2.5 2.5 0 11-2.934 4.09l-3.23-2.6A2.5 2.5 0 115.5 10z" /></svg>}
-                                {item.icon === 'droplet' && <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>}
-                                {item.icon === 'lightning' && <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>}
-                                {item.icon === 'battery' && <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>}
+                <FadeIn delay={0.4}>
+                    <div className="relative w-full rounded-3xl bg-[#1a3322] border border-[#23482f] p-8 md:p-12 overflow-hidden mt-6">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
+                        <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+                            <div className="text-center md:text-left">
+                                <h4 className="text-lg font-bold text-white mb-1">System Architecture</h4>
+                                <p className="text-sm text-white/60">Seamless integration</p>
                             </div>
-                            <h3 className="text-xl font-bold">{item.title}</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">{item.text}</p>
-                        </div>
-                    </FadeIn>
-                ))}
-            </div>
-
-            {/* System Architecture Diagram Placeholder */}
-            <FadeIn delay={0.4}>
-                <div className="bg-card rounded-3xl p-8 border border-white/5">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-                        <div>
-                            <h3 className="text-lg font-bold">System Architecture</h3>
-                            <p className="text-xs text-gray-500">Seamless integration</p>
-                        </div>
-                        <div className="flex-grow flex items-center justify-center gap-4 text-xs font-mono">
-                            <div className="flex flex-col items-center gap-2">
-                                <div className="w-10 h-10 rounded-full bg-primary text-black flex items-center justify-center font-bold">1</div>
-                                <span className="opacity-60">Sensors</span>
-                            </div>
-                            <div className="h-0.5 flex-grow bg-gradient-to-r from-primary to-transparent w-24"></div>
-                            <div className="flex flex-col items-center gap-2">
-                                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center font-bold border border-white/20">2</div>
-                                <span className="opacity-60">MCU</span>
-                            </div>
-                            <div className="h-0.5 flex-grow bg-gradient-to-r from-transparent via-white/20 to-transparent w-24"></div>
-                            <div className="flex flex-col items-center gap-2">
-                                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center font-bold border border-white/20">3</div>
-                                <span className="opacity-60">Alert</span>
+                            <div className="flex flex-1 w-full justify-between items-center gap-2 md:gap-4 max-w-lg">
+                                <div className="flex flex-col items-center gap-2">
+                                    <div className="size-10 rounded-full bg-primary flex items-center justify-center text-[#102216] font-bold">1</div>
+                                    <span className="text-xs text-white font-medium">Sensors</span>
+                                </div>
+                                <div className="h-[2px] flex-1 bg-gradient-to-r from-primary to-[#23482f]"></div>
+                                <div className="flex flex-col items-center gap-2">
+                                    <div className="size-10 rounded-full bg-[#23482f] text-white border border-primary/30 flex items-center justify-center font-bold">2</div>
+                                    <span className="text-xs text-white font-medium">MCU</span>
+                                </div>
+                                <div className="h-[2px] flex-1 bg-gradient-to-r from-[#23482f] to-primary"></div>
+                                <div className="flex flex-col items-center gap-2">
+                                    <div className="size-10 rounded-full bg-[#23482f] text-white border border-primary/30 flex items-center justify-center font-bold">3</div>
+                                    <span className="text-xs text-white font-medium">Alert</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </FadeIn>
+                </FadeIn>
+            </div>
         </section>
     );
 }
