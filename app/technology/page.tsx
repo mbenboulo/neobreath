@@ -4,6 +4,7 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import FadeIn from "@/components/FadeIn";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 export default function TechnologyPage() {
     return (
@@ -246,7 +247,13 @@ export default function TechnologyPage() {
                                                     <span className="text-primary font-bold">{item.status}</span>
                                                 </div>
                                                 <div className="w-full bg-background rounded-full h-2">
-                                                    <div className="bg-primary h-2 rounded-full" style={{ width: item.pct }}></div>
+                                                    <motion.div
+                                                        className="bg-primary h-2 rounded-full"
+                                                        initial={{ width: 0 }}
+                                                        whileInView={{ width: item.pct }}
+                                                        viewport={{ once: false }}
+                                                        transition={{ duration: 1, ease: "easeOut" }}
+                                                    />
                                                 </div>
                                                 <p className="text-text-secondary text-xs">{item.desc}</p>
                                             </div>

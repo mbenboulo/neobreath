@@ -23,18 +23,6 @@ export default function Footer() {
                     </div>
 
                     <div className="flex gap-12 flex-wrap">
-                        {/* Supported By Section */}
-                        <div className="flex flex-col gap-3">
-                            <h4 className="text-white font-bold text-sm">Supported by</h4>
-                            <div className="bg-white p-2 rounded-lg w-fit">
-                                <img
-                                    src="/british-council.jpg"
-                                    alt="British Council"
-                                    className="h-12 w-auto object-contain"
-                                />
-                            </div>
-                        </div>
-
                         {/* Product Section */}
                         <div className="flex flex-col gap-3">
                             <h4 className="text-white font-bold text-sm">Product</h4>
@@ -65,7 +53,7 @@ export default function Footer() {
                 </div>
 
                 <div className="w-full max-w-[960px] px-4 md:px-10 mt-12 pt-8 border-t border-white/5 text-center md:text-left">
-                    <p className="text-white/30 text-xs text-center md:text-left">© 2024 NeoBreath Guard. All rights reserved. Not a medical device replacement for professional care.</p>
+                    <p className="text-white/30 text-xs text-center md:text-left">© 2025 NeoBreath Guard. All rights reserved. Not a medical device replacement for professional care.</p>
                 </div>
             </div>
         </footer>
