@@ -28,6 +28,7 @@ export default function RootLayout({
         className={`${manrope.variable} font-sans antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
