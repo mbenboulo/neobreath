@@ -251,7 +251,7 @@ export default function TechnologyPage() {
                                                         className="bg-primary h-2 rounded-full"
                                                         initial={{ width: 0 }}
                                                         whileInView={{ width: item.pct }}
-                                                        viewport={{ once: false }}
+                                                        viewport={{ once: true }}
                                                         transition={{ duration: 1, ease: "easeOut" }}
                                                     />
                                                 </div>

@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface ScrollRevealProps {
     children: React.ReactNode;
@@ -14,24 +13,24 @@ export default function ScrollReveal({
     className = "",
     direction = "up",
 }: ScrollRevealProps) {
-    const ref = useRef<HTMLDivElement>(null);
-
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start end", "end start"],
-    });
-
-    const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
-    const y = useTransform(
-        scrollYProgress,
-        [0, 0.15, 0.85, 1],
-        direction === "up" ? [30, 0, 0, -30] : [-30, 0, 0, 30]
-    );
+    const variants = {
+        hidden: {
+            opacity: 0,
+            y: direction === "up" ? 30 : -30,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+        },
+    };
 
     return (
         <motion.div
-            ref={ref}
-            style={{ opacity, y }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            variants={variants}
             className={className}
         >
             {children}
