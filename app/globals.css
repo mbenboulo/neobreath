@@ -1,39 +1,145 @@
 @import "tailwindcss";
 
+/*
+ * NeoBreath brand layer.
+ *
+ * Canonical values live in design/tokens.ts (see AGENTS.md §3). This file mirrors
+ * them into Tailwind v4 `@theme` so utilities like `bg-nb-canvas` exist.
+ *
+ * MIGRATION STATE — read before editing:
+ *   The `nb-*` tokens below are live and safe to use in new components.
+ *   The LEGACY block further down keeps the pre-rebrand site rendering while
+ *   components are rebuilt (AGENTS.md Phase 3). Once every component uses `nb-*`,
+ *   delete the LEGACY block and point `body` at `--nb-canvas`.
+ *   Do not "fix" the legacy block to cream now — that breaks the un-migrated pages.
+ */
+
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-surface: var(--surface);
-  --color-text-secondary: var(--text-secondary);
-  --font-sans: var(--font-manrope);
+  /* ── Surfaces ─────────────────────────────────────────────────────────── */
+  --color-nb-canvas: #fbf4e8; /* warm cream page background */
+  --color-nb-surface: #ffffff; /* primary cards */
+  --color-nb-surface-warm: #fdfbf7; /* nested / quiet groups */
+  --color-nb-hairline: #eae3d5; /* soft warm divider — replaces hard borders */
+
+  /* ── Brand ────────────────────────────────────────────────────────────── */
+  --color-nb-primary: #0f766e; /* deep teal */
+  --color-nb-on-primary: #ffffff;
+  --color-nb-primary-wash: rgba(15, 118, 110, 0.1);
+  --color-nb-primary-light: #80d5cb; /* teal for use ON the dark ink surface */
+  --color-nb-secondary: #f4805d; /* warm coral */
+  --color-nb-on-secondary: #ffffff;
+
+  /* ── Text ─────────────────────────────────────────────────────────────── */
+  --color-nb-ink: #25313b; /* deep charcoal, never pure black */
+  /* Muted is darker than DESIGN.md's #64748B, which fails AA on the cream
+     canvas (4.35:1). See design/tokens.ts. */
+  --color-nb-muted: #5c6a80; /* units, timestamps, secondary context */
+  --color-nb-outline: #6e7977; /* interactive boundaries — 3:1 (WCAG 1.4.11) */
+  --color-nb-ink-deep: #0b2b28; /* dark editorial surface */
+  --color-nb-on-ink: #f2f7f5;
+
+  /* ── Status. Never the only signal — pair with a shape. ───────────────── */
+  /* Base hues are for accents (icons, borders, strokes) where 3:1 is the bar. */
+  --color-nb-normal: #2f9e64;
+  --color-nb-watching: #e3a83b;
+  --color-nb-critical: #d64545;
+  /* Text variants. The base hues fail AA as 11px text — see design/tokens.ts. */
+  --color-nb-normal-ink: #1f7a4a;
+  --color-nb-critical-ink: #b3261e;
+  --color-nb-watching-ink: #8a5a0f;
+  --color-nb-normal-wash: rgba(47, 158, 100, 0.12);
+  --color-nb-watching-wash: rgba(227, 168, 59, 0.15);
+  --color-nb-critical-wash: rgba(214, 69, 69, 0.15);
+
+  /* ── Elevation: soft warm ambient depth, never a hard outline ─────────── */
+  --shadow-nb-warm: 0 4px 20px -2px rgba(37, 49, 59, 0.04),
+    0 2px 6px -1px rgba(15, 118, 110, 0.03);
+  --shadow-nb-pill: 0 10px 28px -4px rgba(37, 49, 59, 0.08),
+    0 4px 12px -2px rgba(15, 118, 110, 0.06);
+  --shadow-nb-alert: 0 0 0 3px rgba(214, 69, 69, 0.15),
+    0 12px 32px -4px rgba(214, 69, 69, 0.12);
+  --shadow-nb-calm: 0 0 0 3px rgba(47, 158, 100, 0.15),
+    0 8px 24px -4px rgba(47, 158, 100, 0.12);
+
+  /* ── Shape ────────────────────────────────────────────────────────────── */
+  --radius-nb-card: 1.125rem; /* 18px — standard data card */
+  --radius-nb-card-lg: 1.25rem; /* 20px — hero cards */
+  --radius-nb-drawer: 1.5rem; /* 24px — top edge of modal drawers */
+
+  /* ── Type ─────────────────────────────────────────────────────────────── */
+  /* `--font-jakarta-src` is injected by next/font in app/layout.tsx. */
+  --font-jakarta: var(--font-jakarta-src), "Plus Jakarta Sans", ui-sans-serif,
+    system-ui, sans-serif;
+  /* `font-sans` is the app-wide default; keep it pointed at the brand face. */
+  --font-sans: var(--font-jakarta-src), "Plus Jakarta Sans", ui-sans-serif,
+    system-ui, sans-serif;
+
+  /* ── Layout caps (DESIGN.md) ──────────────────────────────────────────── */
+  --container-nb: 1200px; /* desktop 12-col cap */
+  --container-nb-measure: 960px; /* readable prose measure */
 }
 
-:root {
-  --background: #102216;
-  /* background-dark */
-  --foreground: #ffffff;
-  --card: #1a3322;
-  /* surface-dark */
-  --primary: #13ec5b;
-  /* primary green */
-  --secondary: #23482f;
-  /* surface-border */
-  --surface: #1a3322;
-  --text-secondary: #92c9a4;
-  --font-manrope: var(--font-manrope);
-}
+/*
+ * LEGACY BLOCK REMOVED.
+ *
+ * The pre-rebrand dark-green tokens (`--color-primary: #13ec5b` etc.) used to live
+ * here to keep un-migrated pages rendering during the rebuild. Every component
+ * now uses `nb-*`, so they are gone. If you are looking for them, they were not
+ * migrated — they were deleted, along with the "NeoBreath Guard" brand they
+ * belonged to.
+ *
+ * The `font-sans` theme key is still remapped to the brand face above, because
+ * `layout.tsx` and several components use the bare `font-sans` utility.
+ */
 
+/* ── Base ───────────────────────────────────────────────────────────────── */
 
 html {
   scroll-behavior: smooth;
+  /* Anchor links land below the sticky header instead of under it. */
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
+  background: var(--color-nb-canvas);
+  color: var(--color-nb-ink);
+  font-family: var(--font-jakarta);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Utilities ──────────────────────────────────────────────────────────── */
+
+/*
+ * Physiological readouts must not jitter as telemetry streams, and must stay
+ * legible across a room. Pair with the vital type scale (extra-bold, tight).
+ */
+@utility vital-numerals {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Material Symbols — loaded in app/layout.tsx. */
+@utility nb-icon {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+@utility nb-icon-fill {
+  font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+/* Respect the OS reduced-motion setting for every decorative animation. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

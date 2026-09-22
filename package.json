@@ -6,7 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "tokens:sync": "node scripts/sync-tokens.mjs",
+    "tokens:check": "node scripts/sync-tokens.mjs --check",
+    "anim:sync": "npm run tokens:sync && node scripts/sync-anim.mjs",
+    "anim:check": "npm run tokens:check && node scripts/sync-anim.mjs --check",
+    "assets:check": "node scripts/check-assets.mjs",
+    "audit:contrast": "node scripts/audit-contrast.mjs",
+    "encoding:check": "node scripts/check-encoding.mjs",
+    "verify": "npm run encoding:check && npm run assets:check && npm run audit:contrast && npm run anim:check",
+    "shoot": "node scripts/shoot.mjs",
+    "metadata:report": "node scripts/report-metadata.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

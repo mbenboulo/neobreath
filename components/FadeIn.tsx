@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 
+/** Cubic bezier easing, typed for framer-motion (was `as any`). */
+const EASE_OUT: [number, number, number, number] = [0.25, 0.25, 0, 1];
+
 interface FadeInProps {
     children: React.ReactNode;
     className?: string;
@@ -31,7 +34,7 @@ export default function FadeIn({
             x: 0,
             transition: {
                 duration: duration,
-                ease: [0.25, 0.25, 0, 1] as any,
+                ease: EASE_OUT,
                 delay: delay,
             },
         },
